@@ -120,14 +120,14 @@ func ReceivePCM(v *discordgo.VoiceConnection, c chan *discordgo.Packet) {
 
 		_, ok = speakers[p.SSRC]
 		if !ok {
-			speakers[p.SSRC], err = gopus.NewDecoder(48000, 2)
+			speakers[p.SSRC], err = gopus.NewDecoder(frameRate, channels)
 			if err != nil {
 				OnError("error creating opus decoder", err)
 				continue
 			}
 		}
 
-		p.PCM, err = speakers[p.SSRC].Decode(p.Opus, 960, false)
+		p.PCM, err = speakers[p.SSRC].Decode(p.Opus, frameSize, false)
 		if err != nil {
 			OnError("Error decoding opus data", err)
 			continue
