@@ -4,5 +4,5 @@ go:
     - 1.6
     - 1.7
 install:
-      - go get -u github.com/bwmarrin/dgvoice
+      - go get -u github.com/j4qfrost/dgvoice
       - go get -v .
