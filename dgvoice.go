@@ -54,7 +54,7 @@ var OnError = func(str string, err error) {
 
 // SendPCM will receive on the provied channel encode
 // received PCM data into Opus then send that to Discordgo
-func SendPCM(v *discordgo.VoiceConnection, pcm <-chan []int16) {
+func SendPCM(v *discordgo.VoiceConnection, pcm <-chan []int16, encoded chan []byte) {
 	if pcm == nil {
 		return
 	}
@@ -90,7 +90,7 @@ func SendPCM(v *discordgo.VoiceConnection, pcm <-chan []int16) {
 			return
 		}
 		// send encoded opus data to the sendOpus channel
-		v.OpusSend <- opus
+		encoded <- opus
 	}
 }
 
