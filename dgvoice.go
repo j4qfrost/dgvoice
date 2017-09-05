@@ -9,13 +9,13 @@
 package dgvoice
 
 import (
-	"bufio"
-	"encoding/binary"
+	//"bufio"
+	//"encoding/binary"
 	"fmt"
-	"io"
+	//"io"
 	"os"
-	"os/exec"
-	"strconv"
+	//"os/exec"
+	//"strconv"
 	"sync"
 
 	"github.com/bwmarrin/discordgo"
